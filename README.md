@@ -15,12 +15,12 @@ Tempura is also designed with security in mind. Because the syntax is context aw
 Here's an example of some basic Tempura code:
 ```
 html {
-	head {
-    	meta @charset: 'UTF-8';
+    head {
+        meta @charset: 'UTF-8';
         title 'Hello, World!';
     }
     body {
-    	h1 'Hello, World!';
+        h1 'Hello, World!';
         hr;
         p 'Lorem ipsum dolor sit amet.';
     }
@@ -36,7 +36,7 @@ Tempura is fully forward-compatible with new HTML tags and attributes because it
 Tempura also features shorthand syntax for specifying element `class`es and `id`s. The `.` and `#` sigils are borrowed from CSS and used after element names:
 ```
 div#outer {
-	div.inner 'foo';
+    div.inner 'foo';
     div.inner 'bar';
 }
 ```
@@ -50,14 +50,14 @@ A template engine wouldn't be of much use without dynamic content, so Tempura su
 Functions are employed for reusable markup and Tempura also supports a 'foreach' construct to iterate through array items:
 ```
 function block($heading, $content) {
-	div.block-container {
-    	div.block-heading $heading;
+    div.block-container {
+        div.block-heading $heading;
         div.block-content $content;
     }
 }
 
 html {
-	head { meta @charset: 'UTF-8'; title $title; }
+    head { meta @charset: 'UTF-8'; title $title; }
     body div#blocks {
         foreach ($blocks as $block) {
             block($block.heading, $block.content);
@@ -69,8 +69,8 @@ html {
 Object property access is achieved using the `.` operator, and functions may also specify default parameter values, which will be used if the function call specifies `default` instead of a variable or literal value:
 ```
 function foo($bar, $baz = 'BAZ', $qux) {
-	span {
-    	$bar; $baz; $qux;
+    span {
+        $bar; $baz; $qux;
     }
 }
 foo('BAR', default, 'QUX');
